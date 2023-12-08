@@ -1,28 +1,35 @@
 {
-    "name": "snapr",
-    "version": "0.0.1",
-    "description": "TikTok video and slideshow downloader",
-    "main": "./src/index.js",
-    "scripts": {
-        "start": "node --env-file .env.production ./src/index",
-        "dev": "nodemon --env-file .env ./src/index"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/siyosu/snapr.git"
-    },
-    "keywords": [
-        "tiktok"
-    ],
-    "author": "siyosu",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/siyosu/snapr/issues"
-    },
-    "homepage": "https://github.com/siyosu/snapr#readme",
-    "dependencies": {
-        "ejs": "^3.1.9",
-        "express": "^4.18.2",
-        "tiktok-no-watermark-api": "^1.0.1"
-    }
+  "name": "snapr",
+  "version": "0.0.1",
+  "description": "TikTok video and slideshow downloader",
+  "main": "./src/index.js",
+  "scripts": {
+    "start": "node --env-file .env.production ./src/index",
+    "dev": "nodemon --env-file .env ./src/index",
+    "tw:dev": "npx tailwindcss -i ./src/input.css -o ./public/css/style.css --watch",
+    "tw:build": "npx tailwindcss -o ./public/css/style.css --minify"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/siyosu/snapr.git"
+  },
+  "keywords": [
+    "tiktok"
+  ],
+  "author": "siyosu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/siyosu/snapr/issues"
+  },
+  "homepage": "https://github.com/siyosu/snapr#readme",
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "tiktok-no-watermark-api": "^1.0.1"
+  },
+  "devDependencies": {
+    "prettier-plugin-tailwindcss": "^0.5.9",
+    "tailwind-scrollbar": "^3.0.5",
+    "tailwindcss": "^3.3.6"
+  }
 }
