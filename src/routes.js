@@ -1,25 +1,34 @@
 const { Router } = require("express");
+const TikTokNoWatermark = require("tiktok-no-watermark-api");
 
 const router = Router();
 
 const webUrlPattern =
-  /^(https?:\/\/)?(www\.)?tiktok\.com\/@(\w+)\/video\/(\d+)/;
+  /^(https?:\/\/)?(www\.)?tiktok\.com\/@([\w.]+)\/video\/(\d+)/;
 const shortLinkPattern = /^(https?:\/\/)?(vt|vm)\.tiktok\.com\/[\w-]+\/?$/;
 
 router.get("/", (req, res) => {
-  res.render("index");
+  const message = req.flash("message");
+  res.render("index", { message });
 });
 
-router.get("/tt", async (req, res) => {
-  const { url } = req.query;
+router.post("/download", async (req, res) => {
+  const { url } = req.body;
   try {
-    if (!webUrlPattern.test(url)) {
-      if (!shortLinkPattern.test(url)) throw new Error("Invalid TikTok URL");
+    if (!webUrlPattern.test(url) && !shortLinkPattern.test(url)) {
+      req.flash("message", "Invalid TikTok URL");
+      return res.redirect("/");
     }
-    res.render("tt");
+    const data = await TikTokNoWatermark(url, true);
+    res.render("download", { data: data.result });
   } catch (error) {
-    res.status(500).send({ success: false, message: error.message });
+    req.flash("message", "Video not found");
+    res.redirect("/");
   }
+});
+
+router.use((req, res, next) => {
+  res.redirect("/");
 });
 
 module.exports = router;

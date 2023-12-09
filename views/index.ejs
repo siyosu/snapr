@@ -2,30 +2,35 @@
 <html lang="en">
   <head>
     <%- include('partial/meta') %>
-    <title>Document</title>
+    <title>Snapr - TikTok Downloader</title>
     <link rel="stylesheet" href="/css/style.css" />
   </head>
   <body
-    class="font-inter scrollbar-thin scrollbar-thumb-rounded scrollbar-thumb-slate-800 scrollbar-track-slate-950 flex min-h-screen flex-col bg-slate-950 text-white"
+    class="flex min-h-screen flex-col bg-slate-950 font-inter text-white scrollbar-thin scrollbar-track-slate-950 scrollbar-thumb-slate-800 scrollbar-thumb-rounded"
   >
     <%- include('partial/header') %>
     <main>
       <section class="mt-6">
         <div class="container">
-          <div class="text-center">
-            <h1 class="text-2xl font-bold md:text-3xl">
-              Snapr - TikTok Downloader
-            </h1>
-            <p class="md:text-lg">
-              Download TikTok video or slideshow without watermark.
-            </p>
-          </div>
-        </div>
-      </section>
-      <section class="mt-6">
-        <div id="wrapper" class="container">
-          <div class="mx-auto max-w-2xl rounded border border-slate-800 p-4">
-            <%- include('partial/search-form') %>
+          <div>
+            <div class="text-center">
+              <h1 class="text-2xl font-bold md:text-3xl">
+                Snapr - TikTok Downloader
+              </h1>
+              <p class="md:text-lg">
+                Download TikTok video or slideshow without watermark.
+              </p>
+            </div>
+            <div
+              class="mx-auto mt-6 max-w-2xl rounded border border-slate-800 p-4"
+            >
+              <% if (message.length) { %>
+                <div class="p-2 rounded border border-rose-800 bg-rose-500 text-sm mb-2">
+                  <p><%= message[0] %></p>
+                </div>
+              <% } %>
+              <%- include('partial/search-form') %>
+            </div>
           </div>
         </div>
       </section>
@@ -39,5 +44,6 @@
       </section>
     </main>
     <%- include('partial/footer') %>
+    <script src="/js/index.js"></script>
   </body>
 </html>

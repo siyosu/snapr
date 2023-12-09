@@ -1,0 +1,41 @@
+<div class="grid gap-4 md:grid-cols-2">
+  <video
+    controls
+    class="mx-auto w-full max-w-sm rounded border border-slate-800 bg-slate-900"
+  >
+    <source src="<%= data.details.video_url %>" />
+    Your browser does not support the video tag.
+  </video>
+  <div
+    class="flex flex-col gap-3 text-center text-sm font-semibold md:text-base"
+    data-filename="<%= data.owner_username %>_<%= data.details.video_id %>"
+  >
+    <button
+      class="rounded bg-white px-4 py-2 text-slate-950 transition hover:bg-white/75 disabled:pointer-events-none disabled:bg-white/75"
+      data-source="<%= data.details.video_url %>"
+      data-download="1"
+      data-type="mp4"
+    >
+      Download Video
+    </button>
+    <button
+      class="rounded bg-slate-800 px-4 py-2 transition hover:bg-slate-900 disabled:pointer-events-none disabled:bg-slate-900/75"
+      data-source="<%= data.details.audio_url %>"
+      data-download="1"
+      data-type="mp3"
+    >
+      Download Audio
+    </button>
+    <button
+      class="rounded bg-slate-800 px-4 py-2 transition hover:bg-slate-900 disabled:pointer-events-none disabled:bg-slate-900/75"
+      data-source="<%= data.details.cover %>"
+      data-download="1"
+      data-type="jpg"
+    >
+      Download Thumbnail
+    </button>
+    <a class="rounded px-4 py-2 transition hover:bg-slate-900" href="/"
+      >Return Home</a
+    >
+  </div>
+</div>
