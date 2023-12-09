@@ -1,11 +1,43 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <%- include('partial/meta') %>
     <title>Document</title>
-</head>
-<body>
-    <h1>Hello World</h1>
-</body>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body
+    class="font-inter scrollbar-thin scrollbar-thumb-rounded scrollbar-thumb-slate-800 scrollbar-track-slate-950 flex min-h-screen flex-col bg-slate-950 text-white"
+  >
+    <%- include('partial/header') %>
+    <main>
+      <section class="mt-6">
+        <div class="container">
+          <div class="text-center">
+            <h1 class="text-2xl font-bold md:text-3xl">
+              Snapr - TikTok Downloader
+            </h1>
+            <p class="md:text-lg">
+              Download TikTok video or slideshow without watermark.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section class="mt-6">
+        <div id="wrapper" class="container">
+          <div class="mx-auto max-w-2xl rounded border border-slate-800 p-4">
+            <%- include('partial/search-form') %>
+          </div>
+        </div>
+      </section>
+      <section class="mt-6">
+        <div class="container">
+          <div class="mx-auto max-w-2xl">
+            <h2 class="mb-2 text-xl font-semibold md:text-2xl">F.A.Q</h2>
+            <%- include('partial/faq') %>
+          </div>
+        </div>
+      </section>
+    </main>
+    <%- include('partial/footer') %>
+  </body>
 </html>

@@ -1,0 +1,32 @@
+<form class="flex flex-col gap-4" action="/tt" method="get">
+  <div class="relative flex flex-col gap-2">
+    <label for="targetUrl">
+      Target URL
+      <span class="sr-only">TikTok video or slideshow URL</span>
+    </label>
+    <input
+      class="outl rounded border border-slate-800 bg-slate-950 p-2 outline-white"
+      type="url"
+      name="url"
+      id="targetUrl"
+      placeholder="https://"
+      aria-describedby="urlHelpText"
+    />
+    <button
+      id="pasteClipboard"
+      class="absolute right-3 top-1/2 mt-[2px] -translate-y-1/2"
+      aria-label="Paste from Clipboard"
+      type="button"
+      tabindex="-1"
+    >
+      <%- include('../icons/clipboard') %>
+    </button>
+    <small id="urlHelpText"> Enter the TikTok video or slideshow URL </small>
+  </div>
+  <button
+    class="cursor-pointer self-end rounded bg-white px-4 py-2 text-sm font-medium text-slate-950 transition hover:bg-slate-300 md:text-base"
+    type="submit"
+  >
+    Submit
+  </button>
+</form>

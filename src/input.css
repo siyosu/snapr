@@ -3,3 +3,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .faq-details {
+    @apply rounded border border-slate-800 transition-all open:bg-slate-900;
+  }
+  .faq-summary {
+    @apply flex cursor-pointer list-none gap-4 p-4 font-semibold marker:hidden md:text-lg;
+  }
+  .faq-answer {
+    @apply px-4 pb-4 leading-5;
+  }
+}
