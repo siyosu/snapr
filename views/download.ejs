@@ -16,7 +16,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="language" content="English" />
     <meta name="author" content="siyosu" />
-
+    <link rel="icon" href="/img/favicon.svg">
     <title>Snapr - @<%= data.owner_username %></title>
     <link rel="stylesheet" href="/css/style.css" />
   </head>
@@ -29,12 +29,17 @@
       <section class="mt-6">
         <div class="container">
           <div class="mx-auto max-w-2xl rounded border border-slate-800 p-4">
-            <%- include('partial/video',data) %>
+            <% if (data.type === 'video') { %>
+                <%- include('partial/video',data) %>
+            <% } else { %>
+                <%- include('partial/slideshow',data) %>
+            <% } %>
           </div>
         </div>
       </section>
     </main>
     <%- include('partial/footer') %>
+    <script src="/js/jszip.min.js"></script>
     <script src="/js/download.js"></script>
   </body>
 </html>

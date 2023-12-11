@@ -6,8 +6,7 @@
   "scripts": {
     "start": "node --env-file .env.production ./src/index",
     "dev": "nodemon --env-file .env ./src/index",
-    "tw:dev": "npx tailwindcss -i ./src/input.css -o ./public/css/style.css --watch",
-    "tw:build": "npx tailwindcss -o ./public/css/style.css --minify"
+    "tw": "npx tailwindcss -i ./src/input.css -o ./public/css/style.css --watch --minify"
   },
   "repository": {
     "type": "git",

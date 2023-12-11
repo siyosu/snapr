@@ -29,6 +29,7 @@ async function handleSearchForm(e) {
   e.preventDefault();
 
   searchBtn.disabled = true;
+  searchBtn.setAttribute('aria-disabled', true)
   searchBtn.innerText = "Loading...";
   NProgress.start({ showSpinner: false });
 

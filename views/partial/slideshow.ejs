@@ -1,0 +1,74 @@
+<div class="grid gap-4 md:grid-cols-2" role="region" aria-live="polite">
+  <div
+    class="relative mx-auto w-full max-w-sm overflow-hidden rounded border border-slate-800 bg-slate-900"
+  >
+    <div id="slideshowWrapper" class="flex transition-all" data-image="1">
+      <% const images = data.details.images%>
+      <% for( let i = 0; i < images.length; i++) { %>
+        <div
+          class="relative w-full flex-shrink-0"
+          data-filename="<%= data.owner_username %>_<%= data.details.video_id %>_<%= i + 1 %>"
+        >
+          <span class="absolute right-4 top-4 rounded bg-slate-900 p-2"
+            ><%= i + 1 %>/<%= images.length %></span
+          >
+          <img
+            class="h-full w-full object-cover"
+            src="<%= images[i] %>"
+            alt="@<%= data.owner_username %> slideshow image <%= i %>"
+          />
+          <button
+            class="absolute bottom-4 left-1/2 w-[90%] -translate-x-1/2 rounded bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-950 disabled:pointer-events-none disabled:bg-slate-950 md:text-base"
+            data-download="1"
+            data-type="webp"
+            data-source="<%= images[i] %>"
+          >
+            Download Image <%= i + 1 %>
+          </button>
+        </div>
+      <% } %>
+    </div>
+    <button
+      data-slideshow-nav="prev"
+      aria-label="Previous Slide"
+      class="absolute left-2 top-1/2 -translate-y-1/2 rotate-180 rounded-full bg-slate-900 p-2 transition hover:bg-slate-950"
+    >
+      <span class="pointer-events-none" aria-hidden="true"
+        ><%- include('../icons/chevron') %></span
+      >
+    </button>
+    <button
+      data-slideshow-nav="next"
+      class="absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-slate-900 p-2 transition hover:bg-slate-950"
+      aria-label="Next Slide"
+    >
+      <span class="pointer-events-none" aria-hidden="true"
+        ><%- include('../icons/chevron') %></span
+      >
+    </button>
+  </div>
+  
+  <div
+    class="flex flex-col gap-3 text-center text-sm font-semibold md:text-base"
+    data-filename="<%= data.owner_username %>_<%= data.details.video_id %>"
+  >
+    <button
+      class="rounded bg-white px-4 py-2 text-slate-950 transition hover:bg-white/75 disabled:pointer-events-none disabled:bg-white/75"
+      data-download="1"
+      data-type="zip"
+    >
+      Download as .zip file
+    </button>
+    <button
+      class="rounded bg-slate-800 px-4 py-2 transition hover:bg-slate-900 disabled:pointer-events-none disabled:bg-slate-900/75"
+      data-source="<%= data.details.audio_url %>"
+      data-download="1"
+      data-type="mp3"
+    >
+      Download Audio
+    </button>
+    <a class="rounded px-4 py-2 transition hover:bg-slate-900" href="/"
+      >Return Home</a
+    >
+  </div>
+</div>
